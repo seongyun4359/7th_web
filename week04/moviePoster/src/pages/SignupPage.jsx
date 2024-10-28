@@ -7,12 +7,15 @@ import { yupResolver } from '@hookform/resolvers/yup';
 // yup을 사용해 스키마 정의
 const schema = yup.object().shape({
   email: yup.string()
-    .email('올바른 이메일 형식을 입력해 주세요.') // 이메일 형식 검사
-    .required('이메일은 필수 입력 사항입니다.'), // 필수 입력
+    .email('올바른 이메일 형식을 입력해 주세요.')
+    .required('이메일은 필수 입력 사항입니다.'),
   password: yup.string()
-    .min(8, '비밀번호는 최소 8자 이상이어야 합니다.') // 최소 길이
-    .max(16, '비밀번호는 최대 16자 이하여야 합니다.') // 최대 길이
-    .required('비밀번호는 필수 입력 사항입니다.'), // 필수 입력
+    .min(8, '비밀번호는 최소 8자 이상이어야 합니다.')
+    .max(16, '비밀번호는 최대 16자 이하여야 합니다.')
+    .required('비밀번호는 필수 입력 사항입니다.'),
+  passwordCheck: yup.string()
+    .oneOf([yup.ref('password'), null], '비밀번호가 일치하지 않습니다.') // 비밀번호 확인
+    .required('비밀번호 확인은 필수 입력 사항입니다.'), // 필수 입력
 });
 
 const SignUpPage = () => {
@@ -26,13 +29,14 @@ const SignUpPage = () => {
 
   const email = watch("email");
   const password = watch("password");
+  const passwordCheck = watch("passwordCheck");
 
-  const isDisabled = !email || errors.email || !password || errors.password;
+  const isDisabled = !email || errors.email || !password || errors.password || !passwordCheck || errors.passwordCheck;
 
   return (
     <Wrapper>
       <FormContainer onSubmit={handleSubmit(onSubmit)}>
-        <Title>Sign Up</Title> {/* Title 컴포넌트를 사용 */}
+        <Title>Sign Up Page</Title>
         <Label>
           ID 
           <Input type="email" {...register("email")} required />
@@ -42,6 +46,11 @@ const SignUpPage = () => {
           Password
           <Input type="password" {...register("password")} required />
           {errors.password && <Error>{errors.password?.message}</Error>}
+        </Label>
+        <Label>
+          Password Check
+          <Input type="password" {...register("passwordCheck")} required />
+          {errors.passwordCheck && <Error>{errors.passwordCheck?.message}</Error>}
         </Label>
         <SubmitButton type="submit" disabled={isDisabled}>회원가입</SubmitButton>
       </FormContainer>

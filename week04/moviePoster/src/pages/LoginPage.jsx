@@ -32,7 +32,7 @@ const LoginPage = () => {
   return (
     <Wrapper>
       <FormContainer onSubmit={handleSubmit(onSubmit)}>
-        <Title>Login</Title>
+        <Title>Login Page</Title>
         <Label>
           ID 
           <Input type="email" {...register("email")} required />
