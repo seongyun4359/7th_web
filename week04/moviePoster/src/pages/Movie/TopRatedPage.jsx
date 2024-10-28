@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import MovieCard from "../components/movies.jsx";
-import useFetchMovies from "../components/useFetchMovies.jsx";
+import MovieCard from "../../components/movies.jsx";
+import useFetchMovies from "../../components/useFetchMovies.jsx";
 
 const TopRatedPage = () => {
   const { movies } = useFetchMovies(

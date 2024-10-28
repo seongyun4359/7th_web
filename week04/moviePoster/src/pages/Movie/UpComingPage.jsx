@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Card from "../components/movies.jsx"; // Movie 카드 컴포넌트 임포트
-import useFetchMovies from "../components/useFetchMovies.jsx"; // 커스텀 훅 임포트
+import Card from "../../components/movies.jsx"; // Movie 카드 컴포넌트 임포트
+import useFetchMovies from "../../components/useFetchMovies.jsx"; // 커스텀 훅 임포트
 
 // UpcomingPage 컴포넌트 정의
 const UpcomingPage = () => {
