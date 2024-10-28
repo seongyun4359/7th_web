@@ -4,23 +4,21 @@ import "./App.css";
 
 import RootLayout from "./layout/RootLayout.jsx";
 import MoviesPage from "./pages/MoviesPage.jsx";
-import LoginPage from "./pages/LoginPage.jsx";
-import SignsupPage from "./pages/SignupPage.jsx";
 import CategoryPage from "./pages/Category.jsx";
 import SearchPage from "./pages/SearchPage.jsx";
-import NowPlayingPage from "./pages/NowPlayingPage.jsx";
-import PopularPage from "./pages/PopularPage.jsx";
-import TopRatedPage from "./pages/TopRatedPage.jsx";
-import UpcomingPage from "./pages/UpComingPage.jsx";
+import NowPlayingPage from "./pages/Movie/NowPlayingPage.jsx";
+import PopularPage from "./pages/Movie/PopularPage.jsx";
+import TopRatedPage from "./pages/Movie/TopRatedPage.jsx";
+import UpcomingPage from "./pages/Movie/UpcomingPage.jsx"; 
+import LoginPage from "./pages/LoginPage.jsx";
+import SignUpPage from "./pages/SignUpPage.jsx";  // 여기를 수정
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
-    // 1. Navbar 밑에 path에 해당하는 element를 보여주고 싶으면 아래와 같이 children을 활용
     children: [
       {
-        // 2. index: true는 위의 path: '/' 즉, 홈 경로를 의미한다.
         index: true,
         element: <MoviesPage />,
       },
@@ -30,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: "signup",
-        element: <SignsupPage />,
+        element: <SignUpPage />,  // 여기를 수정
       },
       {
         path: "search",
@@ -44,7 +42,7 @@ const router = createBrowserRouter([
       { path: "category/popular", element: <PopularPage /> },
       { path: "category/top-rated", element: <TopRatedPage /> },
       { path: "category/upcoming", element: <UpcomingPage /> },
-      {errorElement: <h1>너는 없는 경로에 들어왔다 ^ㅁ^ 야호~!</h1>}
+      { errorElement: <h1>너는 없는 경로에 들어왔다 ^ㅁ^ 야호~!</h1> },
     ],
   },
 ]);
