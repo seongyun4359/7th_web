@@ -1,8 +1,6 @@
 import React from "react";
-import { FiShoppingCart } from "react-icons/fi"; // 장바구니 아이콘 import
 import { Link } from "react-router-dom";
-import { CartIcon } from "../constants/icons";
-
+import { CartIcon } from "@/constants/icons"; // 아이콘 import
 
 function Header() {
   return (
@@ -11,7 +9,7 @@ function Header() {
         <Link to="/">UMC Lucha Playlist</Link>
       </h1>
       <Link to="/cart" className="text-2xl hover:text-gray-400 transition-colors">
-        <FiShoppingCart />
+        <CartIcon /> {/* 기존 FiShoppingCart 대신 CartIcon 사용 */}
       </Link>
     </header>
   );
