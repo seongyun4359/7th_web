@@ -9,7 +9,7 @@ function Header() {
         <Link to="/">UMC Lucha Playlist</Link>
       </h1>
       <Link to="/cart" className="text-2xl hover:text-gray-400 transition-colors">
-        <CartIcon /> {/* 기존 FiShoppingCart 대신 CartIcon 사용 */}
+        <CartIcon /> 
       </Link>
     </header>
   );
